@@ -12,7 +12,6 @@ function Navbar() {
             <NavbarItem extraStyle={"mb-[49px] opacity-[60%]"} to={"#"} icon={<LibraryIcon/>} title={"Your Library"} />
             <NavbarItem extraStyle={" opacity-[60%]"} to={"#"} icon={<PlayListIcon/>} title={"Create Plalist"} />
             <NavbarItem spanStyle={"opacity-[60%]"} to={"/liked"} icon={<LikedIcon/>} title={"Liked Songs"} />
-
         </div>
     </div>
   )

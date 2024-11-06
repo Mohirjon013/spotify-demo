@@ -7,3 +7,15 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+.single-bg{
+    height: 100%;
+    background-image: url(./assets/images/single-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+.home-bg{
+    background-color: rgba(225, 225, 225, 10%);
+}

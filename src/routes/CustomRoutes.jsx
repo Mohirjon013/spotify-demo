@@ -22,7 +22,7 @@ function CustomRoutes() {
         },
         {
             id:4,
-            path:"/single/:id",
+            path:"/music/:id",
             element:<Single/>
         },
     ]

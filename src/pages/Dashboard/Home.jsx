@@ -1,30 +1,41 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { Context } from '../../context/Context'
-import SpotifyWebApi from 'spotify-web-api-node'
-import { CLEINT_ID } from '../../hook/useEnv'
+import React, { lazy, Suspense, useContext, useEffect, useState } from 'react'
+// import MusicItem from '../../components/MusicItem';
+import Laoding from "../../assets/images/loading.png"
+import { Context } from '../../context/Context';
+import SpotifyWebApi from 'spotify-web-api-node';
+import { CLEINT_ID } from '../../hook/useEnv';
+import Back from "../../assets/images/back.svg"
+import Forward from "../../assets/images/forward.svg"
+
+
+const MusicItem = lazy( () => new Promise(resolve => {
+  return setTimeout(() => {
+    resolve(import("../../components/MusicItem"))
+  },1000 );
+}))
 
 function Home() {
   const {token} = useContext(Context)
-  const [tracksList, setTracksList] = useState([])
+  const [trendMusicList, setTrendMusicList] = useState([])
+
   const spotifyApi = new SpotifyWebApi({
     clientId:CLEINT_ID
   })
-  
 
   useEffect(() => {
     if(!token) return;
     spotifyApi.setAccessToken(token)
   },[token])
-
+  
   useEffect(() => {
     if(token){
-      spotifyApi.searchTracks("Sherali Jo'rayev ").then(res => {
-        setTracksList(res.body.tracks.items.map(item => {
+      spotifyApi.searchAlbums("Massa").then(res => {
+        setTrendMusicList(res.body.albums.items.splice(0, 6).map(item => {
           const data ={
             id:item.id,
-            img:item.album.images[0].url,
+            img:item.images[0].url,
             trackName:item.name,
-            artistName:item.album.artists[0].name,
+            artistName:item.artists[0].name,
             uri:item.uri
           }
           return data
@@ -32,21 +43,35 @@ function Home() {
       })
     }
   },[token])
-
-  console.log(tracksList);
   
   return (
-    <>
-      <div className='flex justify-between gap-5 p-5'>
-        {tracksList?.map(item => (
-          <div key={item.id} className="min-w-[225px] cursor-pointer p-[21px] rounded-[8px] bg-[#1B1B1B]">
-          <img className='h-[182px] mb-[25px] rounded-[8px]' src={item.img} alt="Tracks img" width={"100%"} />
-          <h2 className='text-white font-bold text-[20px] mb-2'>{item.trackName}</h2>
-          <p className='font-normal text-[18px] text-white opacity-60'>{item.artistName}</p>
-        </div>
-        ))}
+    <Suspense fallback={<img className='absolute inset-0 m-auto' src={Laoding} alt='loading img' width={120} height={120} />} >
+      <div className=" w-[105px] mt-5 ml-5 flex items-center justify-between">
+        <img className='cursor-pointer' src={Back} alt="back img" width={40} height={40} />
+        <img className='cursor-pointer' src={Forward} alt="forward img" width={40} height={40} />
+
       </div>
-    </>
+      <div className='p-5'>
+        <h2 className='font-bold text-white text-[40px] mt-[20px]'>Good afternoon, Sir</h2>
+        <ul className='flex flex-wrap justify-between mt-[25px] mb-[50px] gap-y-4 gap-x-[30px]'>
+          
+          {trendMusicList.map(item => (
+            <li className='flex items-center gap-5 w-[48%] home-bg rounded-md overflow-hidden' key={item.id} >
+              <img className='h-[82px]' src={item.img} alt="img" width={82} height={82} />
+              <h3 className='font-bold text-[23px] text-white'>{item.trackName}</h3>
+            </li>
+          ))}
+        </ul>
+        <div className="space-y-[50px]">
+          <MusicItem artistName={"Sherali Jo'rayev "} />
+          <MusicItem artistName={"Massa "} />
+          <MusicItem artistName={"green71 "} />
+          <MusicItem artistName={"Konsta "} />
+          <MusicItem artistName={"Parker jack "} />
+        </div>
+        
+      </div>
+    </Suspense>
   )
 }
 

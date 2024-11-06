@@ -1,5 +1,3 @@
-
-
 function HomeIcon() {
     return (
         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -46,5 +44,64 @@ function LikedIcon() {
 
     )
 }
+function LikedInner() {
+    return (
+        <svg id="like" width="28" height="28" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path id="like" d="M7.00057 1.15801C8.64484 -0.439291 11.1858 -0.386275 12.7699 1.33069C14.3532 3.04841 14.4078 5.78403 12.9351 7.5684L6.99917 14L1.06468 7.5684C-0.408088 5.78403 -0.352789 3.04386 1.22988 1.33069C2.81535 -0.384003 5.3514 -0.441563 7.00057 1.15801Z" fill="currentColor"/>
+        </svg>
 
-export {HomeIcon,SearchIcon,LibraryIcon,PlayListIcon,LikedIcon}
+    )
+}
+function PlayIcon() {
+    return (
+        <svg width="23" height="25" viewBox="0 0 23 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22.2865 13.5123C23.1517 13.0266 23.1517 11.8122 22.2865 11.3264L2.81778 0.396795C1.9525 -0.0889662 0.870909 0.518235 0.870909 1.48976V23.349C0.870909 24.3205 1.9525 24.9277 2.81778 24.442L22.2865 13.5123Z" fill="black"/>
+        </svg>
+
+    )
+}
+function TrackLike() {
+    return (
+        <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clipPath="url(#clip0_131_2993)">
+        <path d="M26.0023 12.9237L25.1506 12.132C21.0545 8.32467 14.7686 8.45914 10.826 12.545C6.87682 16.6417 6.7286 23.2093 10.3911 27.4886L25.9978 43.6979L41.6083 27.4885C45.2702 23.2099 45.1251 16.6539 41.1727 12.5444L26.0023 12.9237ZM26.0023 12.9237L26.8533 12.1314M26.0023 12.9237L26.8533 12.1314M26.8533 12.1314C30.9367 8.32997 37.2348 8.45444 41.1723 12.544L26.8533 12.1314Z" stroke="white" strokeWidth="2.5"/>
+        </g>
+        <defs>
+        <clipPath id="clip0_131_2993">
+        <rect width="52" height="52" fill="white"/>
+        </clipPath>
+        </defs>
+        </svg>
+    )
+}
+function SaveTrack() {
+    return (
+        <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clipPath="url(#clip0_131_2995)">
+        <circle cx="26" cy="26" r="17.75" stroke="white" strokeWidth="2.5"/>
+        <path fillRule="evenodd" clipRule="evenodd" d="M34.8388 28.9289L26.8839 36.8839C26.3957 37.372 25.6043 37.372 25.1161 36.8839L17.1612 28.9289C16.673 28.4408 16.673 27.6493 17.1612 27.1612C17.6493 26.673 18.4408 26.673 18.9289 27.1612L24.75 32.9822L24.75 17C24.75 16.3096 25.3096 15.75 26 15.75C26.6904 15.75 27.25 16.3096 27.25 17L27.25 32.9822L33.0711 27.1612C33.5592 26.673 34.3507 26.673 34.8388 27.1612C35.327 27.6493 35.327 28.4408 34.8388 28.9289Z" fill="white"/>
+        </g>
+        <defs>
+        <clipPath id="clip0_131_2995">
+        <rect width="52" height="52" fill="white"/>
+        </clipPath>
+        </defs>
+        </svg>
+
+    )
+}
+function MoreTarck(){
+    return (
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clipPath="url(#clip0_131_2994)">
+            <path fillRule="evenodd" clipRule="evenodd" d="M12.5715 22C12.5715 23.7358 11.1644 25.1429 9.42862 25.1429C7.69287 25.1429 6.28577 23.7358 6.28577 22C6.28577 20.2643 7.69287 18.8572 9.42862 18.8572C11.1644 18.8572 12.5715 20.2643 12.5715 22ZM25.1429 22C25.1429 23.7358 23.7358 25.1429 22.0001 25.1429C20.2643 25.1429 18.8572 23.7358 18.8572 22C18.8572 20.2643 20.2643 18.8572 22.0001 18.8572C23.7358 18.8572 25.1429 20.2643 25.1429 22ZM34.5715 25.1429C36.3072 25.1429 37.7143 23.7358 37.7143 22C37.7143 20.2643 36.3072 18.8572 34.5715 18.8572C32.8357 18.8572 31.4286 20.2643 31.4286 22C31.4286 23.7358 32.8357 25.1429 34.5715 25.1429Z" fill="white"/>
+            </g>
+            <defs>
+            <clipPath id="clip0_131_2994">
+            <rect width="44" height="44" fill="white"/>
+            </clipPath>
+            </defs>
+        </svg>
+    )
+}
+export {HomeIcon,SearchIcon,LibraryIcon,PlayListIcon,LikedIcon, LikedInner, PlayIcon, TrackLike, SaveTrack, MoreTarck}
